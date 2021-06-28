@@ -22,7 +22,7 @@ function setup(){
 function draw(){
 
     // add condition to check if any background image is there to add
-
+    if(backgroundImg) background(backgroundImg)
 
     Engine.update(engine);
 
@@ -34,7 +34,7 @@ function draw(){
 async function getBackgroundImg(){
 
     var response = await fetch("http://worldtimeapi.org/api/timezone/Asia/Kolkata");
-    var responseJSON = await response.json;
+    var responseJSON = await response.json();
     console.log(responseJSON);
     var date_time = responseJSON.datetime;
     console.log(date_time);
@@ -42,19 +42,19 @@ async function getBackgroundImg(){
     console.log(hour);
 
     if (hour >= 04 && hour <= 06) {
-        bg = "sunrise1.png";
+        debugger; bg = "sunrise1.png";
     }
     else if (hour >= 06 && hour <= 08) {
-        bg = "sunrise2.png";
+        debugger; bg = "sunrise2.png";
     }
     else if (hour >= 23 && hour == 0) {
-        bg = "sunset10.png";
+        debugger; bg = "sunset10.png";
     }
     else if (hour == 0 && hour <= 03) {
-        bg = "sunset11.png";
+        debugger; bg = "sunset11.png";
     }
     else {
-        bg = "sunset12.png";
+        debugger; bg = "sunset12.png";
     }
     backgroundImg = loadImage(bg);
 }
